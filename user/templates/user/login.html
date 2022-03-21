@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Masthead-login -->
+    <header class="masthead-login">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white font-weight-bold"> Se connecter </h1>
+                    <hr class="divider" style="margin-bottom:30px;" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <h2 class="text-white-75 mb-1" style="font-size:1.2em;"> Pas encore membre ? </h2>
+                    <h2 style="font-size:1.2em; margin-bottom:30px; margin-top:7px;"> <a href="{% url 'signup' %}">Inscrivez-vous maintenant !</a> </h2>
+                    <form action="" method="post" class="col-lg-8 mb-5 m-auto">
+                        {% csrf_token %}
+                        <p class="text-white-75" style="font-size:1.2em;"> <strong> {{ form.username.label }} </strong> </p>
+                        <p style="margin-bottom:20px;"> {{ form.username }} </p>
+                        <p class="text-white-75" style="font-size:1.2em;"> <strong> {{ form.password.label }} </strong> </p>
+                        <p style="margin-bottom:30px;"> {{ form.password }} </p>
+                        <button class="btn btn-primary btn-xl" type="submit" id="button-addon2"> Se connecter </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>  
+{% endblock content %}

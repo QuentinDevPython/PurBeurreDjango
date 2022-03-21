@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white font-weight-bold"> Vous êtes-vous perdus ? </h1>
+                    <hr class="divider" />
+                </div>
+                <div class="col-lg-8 align-self-baseline" style="margin-top:30px;">
+                    <video src="{% static 'assets/video/ratatouille_bande_annonce.mp4' %}" style="width: 100%;height:auto;" controls poster="{% static 'assets/img/remy-2.jpg' %}" autoplay="true">
+                        Cette vidéo ne peut être affichée sur votre navigateur Internet.<br>
+                        Une version est disponible en téléchargement sous <a href="URL">adresse du lien </a> . 
+                    </video>
+                    <a href="{% url 'home' %}" style="text-decoration:none;"> <h2 style="margin-top:40px;"> Retour à la page d'accueil ! </h2> </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+{% endblock content %}

@@ -1,2 +1,6 @@
 env
 __pycache__
+migrations
+.pytest_cache
+.DS_Store
+Pipfile

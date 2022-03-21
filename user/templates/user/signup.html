@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Masthead-login -->
+    <header class="masthead-login">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white font-weight-bold"> Inscription </h1>
+                    <hr class="divider" style="margin-bottom:30px;" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <h2 class="text-white-75 mb-1" style="font-size:1.2em;"> Déjà membre ? </h2>
+                    <h2 style="font-size:1.2em; margin-bottom:30px; margin-top:7px;"> <a href="{% url 'login' %}"> Se connecter !</a> </h2>
+
+                    <form action="" method="post" class="col-lg-8 mb-5 m-auto">
+                        {% csrf_token %}
+                        <p class="text-white-75" style="font-size:1.2em;"> <strong> {{ form.email.label }} </strong> </p>
+                        <p> {{ form.email }} </p>
+                        {% if form.errors.email %}
+                            <p style="font-size:1em; margin-bottom:20px; color:#f00020;"> {{ form.errors.email.as_text }} </p>
+                        {% endif %}
+
+                        <p class="text-white-75" style="font-size:1.2em;"> <strong> {{ form.first_name.label }} </strong> </p>
+                        <p style="margin-bottom:20px;"> {{ form.first_name }} </p>
+
+                        <p class="text-white-75" style="font-size:1.2em;"> <strong> {{ form.last_name.label }} </strong> </p>
+                        <p style="margin-bottom:20px;"> {{ form.last_name }} </p>
+
+                        <p class="text-white-75" style="font-size:1.2em;"> <strong> {{ form.password1.label }} </strong> </p>
+                        <p style="margin-bottom:20px;"> {{ form.password1 }} </p>
+
+                        <p class="text-white-75" style="font-size:1.2em;"> <strong> {{ form.password2.label }} </strong> </p>
+                        <p > {{ form.password2 }} </p>
+                        {% if form.errors.password2 %}
+                            <p style="font-size:1em; margin-bottom:30px; color:#f00020;"> {{ form.errors.password2.as_text }} </p>
+                        {% endif %}
+
+                        <button class="btn btn-primary btn-xl" type="submit" id="button-addon2"> S'inscrire </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>  
+{% endblock content %}

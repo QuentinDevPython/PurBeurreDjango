@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block navigation %}
+    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+        <li class="nav-item">
+            <form action="" method="post" class="d-flex" id="form-navbar">
+                {% csrf_token %}
+                {{ search_form.product }}
+            </form>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#about"> 
+                <i class="bi bi-person fs-1 text-primary"></i>
+            </a>                            
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/favorites/my_food/None" id="carrot-menu">
+                <img src="{% static 'assets/img/carrot3.png' %}" />
+            </a>                            
+        </li>
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}"> 
+                    <i class="bi bi-box-arrow-right fs-1 text-primary"></i>
+                </a>                            
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}"> 
+                    <i class="bi bi-door-open fs-1 text-primary"></i>
+                </a>                            
+            </li>
+        {% endif %}
+    </ul>
+{% endblock navigation %}
+
+{% block content %}
+
+    {% block body %}{% endblock body %}
+
+    <!-- Footer-->
+    <footer class="bg-light py-5">
+        <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - Company Name</div></div>
+    </footer>
+
+{% endblock content %}

@@ -40,3 +40,5 @@ class ProductWithCategory(models.Model):
     product = models.ForeignKey(Product, null=True, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE)
     
+    def __str__(self):
+        return f'{self.product} | {self.category}'

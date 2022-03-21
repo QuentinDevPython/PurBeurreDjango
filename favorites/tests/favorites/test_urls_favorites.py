@@ -5,10 +5,10 @@ from django.urls import reverse, resolve
 from products.models import Product
 
 
-@pytest.mark.django_db
-def test_my_food_url():
-    
-    product = Product.objects.create(
+class TestUrlsFavorites:
+
+    def setup_method(self, method):
+        self.product = Product.objects.create(
         product_name_fr = 'Formule boost',
         countries = 'France',
         stores = 'simply market,intermarché, carrefour.fr',
@@ -20,13 +20,17 @@ def test_my_food_url():
         allergens_from_ingredients = 'en:soybeans, soja, amandes',
         ingredients_text_fr = 'Cranberries (cranberries séchées, sucre, huile de tournesol), graines de _soja_ grillées, _amandes_ torréfiées, graines de courge grillées,'
     )
-    
-    path = reverse(
-        'my_food',
-        kwargs={
-            'product': product
-        }
-    )
-    
-    assert path == "/favorites/my_food/Formule%20boost/"
-    assert resolve(path).view_name == "my_food"
+
+ 
+    @pytest.mark.django_db
+    def test_my_food_url(self):
+        
+        path = reverse(
+            'my_food',
+            kwargs={
+                'product': self.product
+            }
+        )
+        
+        assert path == "/favorites/my_food/Formule%20boost/"
+        assert resolve(path).view_name == "my_food"

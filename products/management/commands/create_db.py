@@ -14,8 +14,10 @@ class Command(BaseCommand):
         try:
             downloader = Downloader()
             all_data = downloader.get_all_data()
+            
             cleaner = Cleaner(all_data)
             cleaned_data = cleaner.get_cleaned_data()
+            
             inserter = Inserter(
                    cleaned_data,
                    Product,
@@ -23,11 +25,12 @@ class Command(BaseCommand):
                    ProductWithCategory
                )
             inserter.insert_data()
+
             self.stdout.write(
                 self.style.SUCCESS(
                     "The products have been successfully imported !"
                 )
-            ) 
+            )
         except:
             self.stdout.write(
                 self.style.ERROR(

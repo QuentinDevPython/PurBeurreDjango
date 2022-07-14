@@ -24,7 +24,7 @@ urlpatterns = [
         admin.site.urls
     ),
     path(
-        'home/',
+        '',
         products.views.home,
         name='home'
     ),

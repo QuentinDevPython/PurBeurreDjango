@@ -24,7 +24,7 @@ class Product(models.Model):
     grade = models.fields.CharField(choices=Grade.choices, max_length=1)
     url = models.fields.CharField(max_length=300)
     image_url = models.fields.CharField(max_length=300)
-    conservation_conditions_fr = models.fields.CharField(max_length=500, null=True)
+    conservation_conditions_fr = models.fields.CharField(max_length=2000, null=True)
     additives_original_tags = models.fields.CharField(max_length=400, null=True)
     allergens_from_ingredients = models.fields.CharField(max_length=400, null=True)
     ingredients_text_fr = models.fields.CharField(max_length=2000, null=True)

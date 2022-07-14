@@ -32,7 +32,6 @@ class Cleaner:
             data["stores"] = data.get("stores").lower()
             data["nutriscore_grade"] = data.get("nutriscore_grade").upper()
             data["categories"] = self.clean_strings(data.get("categories").lower())
-            print(data)
 
 
     def clean_strings(self, data):

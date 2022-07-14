@@ -25,11 +25,13 @@ class Inserter:
         for data in tqdm(self.cleaned_data):
             
             try:
+
                 product = self.Product.objects.get(
                     product_name_fr = data["product_name_fr"],
                 )
 
             except self.Product.DoesNotExist:
+                
                 if not data.get("conservation_conditions_fr"):
                     data["conservation_conditions_fr"] = ""
                 if not data.get("ingredients_text_fr"):
